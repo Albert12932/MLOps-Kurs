@@ -10,5 +10,11 @@ model:
     max_iter: 200
     solver: "liblinear"
 
+vectorizer:
+  max_features: 5000
+  ngram_range: [1, 2]
+  stop_words: "english"
+  lowercase: true
+
 output:
   model_path: "models/fourth_test_model.pkl"

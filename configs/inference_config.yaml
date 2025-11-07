@@ -1,0 +1,10 @@
+model:
+  path: "models/fourth_test_model.pkl"
+
+vectorizer:
+  path: "models/vectorizer.pkl"
+
+
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "emotion_detection"
