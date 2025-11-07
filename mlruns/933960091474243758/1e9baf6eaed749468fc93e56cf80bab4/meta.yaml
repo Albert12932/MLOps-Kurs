@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/shoma/MLOps-Kurs/mlruns/933960091474243758/1e9baf6eaed749468fc93e56cf80bab4/artifacts
+deleted_time: 1762513302589
+end_time: 1762512921418
+entry_point_name: ''
+experiment_id: '933960091474243758'
+lifecycle_stage: deleted
+run_id: 1e9baf6eaed749468fc93e56cf80bab4
+run_name: logistic_regression_v1
+run_uuid: 1e9baf6eaed749468fc93e56cf80bab4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762512921369
+status: 4
+tags: []
+user_id: shoma

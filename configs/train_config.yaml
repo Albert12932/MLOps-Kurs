@@ -1,0 +1,14 @@
+experiment_name: "emotion_detection"
+run_name: "logistic_regression_v1"
+
+data:
+  path: "data/raw/emotions.csv"
+
+model:
+  type: "logistic_regression"
+  params:
+    max_iter: 200
+    solver: "liblinear"
+
+output:
+  model_path: "models/fourth_test_model.pkl"
