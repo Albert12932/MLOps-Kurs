@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/shoma/MLOps-Kurs/mlruns/801366673329859678/7d37a4743ac04e429b12c43f94159daf/artifacts
+end_time: 1762512578232
+entry_point_name: ''
+experiment_id: '801366673329859678'
+lifecycle_stage: active
+run_id: 7d37a4743ac04e429b12c43f94159daf
+run_name: painted-hog-547
+run_uuid: 7d37a4743ac04e429b12c43f94159daf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762512572943
+status: 3
+tags: []
+user_id: shoma
