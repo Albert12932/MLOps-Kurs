@@ -1,0 +1,24 @@
+[project]
+name = "emotion-mlops"
+version = "0.1.0"
+description = "MLOps пайплайн для классификации эмоций"
+authors = [
+    {name = "albert",email = "shoma.albert081205@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "fastapi (>=0.121.0,<0.122.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
+    "pandas (>=2.3.3,<3.0.0)",
+    "scikit-learn (>=1.7.2,<2.0.0)",
+    "mlflow (>=3.5.1,<4.0.0)",
+    "pyyaml (>=6.0.3,<7.0.0)",
+    "nltk (>=3.9.2,<4.0.0)",
+    "joblib (>=1.5.2,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
