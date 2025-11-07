@@ -9,7 +9,7 @@ import os
 app = FastAPI(title="Emotion API", version="0.1")
 
 
-MODEL_PATH = os.getenv("MODEL_PATH", "models/first_test_model.pkl")
+MODEL_PATH = os.getenv("MODEL_PATH", "models/second_test_model.pkl")
 
 model = None
 if os.path.exists(MODEL_PATH):

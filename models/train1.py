@@ -15,4 +15,4 @@ pipe.fit(texts, labels)
 import os
 os.makedirs("models", exist_ok=True)
 joblib.dump(pipe, "models/first_test_model.pkl")
-print("Первая тестовая модель сохранена в models/first_test_model.pkl")
+print("Первая тестовая модель сохранена в models/first_test_model.pkl") 
