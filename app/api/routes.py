@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from src.inference.model_loader import ModelLoader
+from app.inference.model_loader import ModelLoader
 
 router = APIRouter()
 
@@ -16,3 +16,7 @@ def predict(input_data: TextInput):
     X = vectorizer.transform([text])
     prediction = model.predict(X)[0]
     return {"text": text, "predicted_emotion": prediction}
+
+@router.get("/health")
+def health():
+    return {"alive":True}
