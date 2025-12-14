@@ -27,7 +27,6 @@ def main(config_path: str):
 
     with mlflow.start_run(run_name=cfg["run_name"]):
 
-        # ---------- data ----------
         df = pd.read_csv(cfg["data"]["train_path"])
         mlflow.log_param("dataset_path", cfg["data"]["train_path"])
         mlflow.log_param(
@@ -45,7 +44,6 @@ def main(config_path: str):
             random_state=cfg.get("seed", 42),
         )
 
-        # ---------- vectorizer ----------
         vec_cfg = cfg["vectorizer"]
 
         vectorizer = TfidfVectorizer(
@@ -57,7 +55,6 @@ def main(config_path: str):
         X_train_vec = vectorizer.fit_transform(X_train)
         X_val_vec = vectorizer.transform(X_val)
 
-        # ---------- model ----------
         base_model = LogisticRegression(
             max_iter=cfg["training"].get("max_iter", 300),
             solver="liblinear",
@@ -65,17 +62,14 @@ def main(config_path: str):
 
         model = OneVsRestClassifier(base_model)
 
-        # ---------- training ----------
         model.fit(X_train_vec, y_train)
 
-        # ---------- evaluation ----------
         val_probs = model.predict_proba(X_val_vec)
         val_preds = (val_probs > 0.5).astype(int)
 
         f1_micro = f1_score(y_val, val_preds, average="micro", zero_division=0)
         f1_macro = f1_score(y_val, val_preds, average="macro", zero_division=0)
 
-        # ---------- mlflow logging ----------
         mlflow.log_params({
             "model_type": "logistic_regression",
             "max_features": vec_cfg.get("max_features"),
@@ -93,7 +87,6 @@ def main(config_path: str):
             "f1_macro": f1_macro,
         })
 
-        # ---------- save artifacts ----------
         output_dir = Path(cfg["output"]["model_path"])
         output_dir.mkdir(parents=True, exist_ok=True)
 

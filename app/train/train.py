@@ -21,7 +21,6 @@ from sklearn.metrics import f1_score
 from sklearn.model_selection import train_test_split
 
 
-# -------------------- Dataset --------------------
 
 class EmotionDataset(Dataset):
     def __init__(self, texts, labels, tokenizer, max_length):
@@ -56,7 +55,6 @@ class EmotionDataset(Dataset):
         }
 
 
-# -------------------- Metrics --------------------
 
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
@@ -69,14 +67,12 @@ def compute_metrics(eval_pred):
     }
 
 
-# -------------------- Utils --------------------
 
 def load_config(path: str) -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
 
-# -------------------- Train --------------------
 
 def main(config_path: str):
     cfg = load_config(config_path)
@@ -178,7 +174,6 @@ def main(config_path: str):
         mlflow.log_artifact(config_path, artifact_path="config")
 
 
-# -------------------- Entry --------------------
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

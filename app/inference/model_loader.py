@@ -25,7 +25,7 @@ class ModelLoader:
                 raise FileNotFoundError(f"Model directory not found: {model_path}")
 
             cls._model = AutoModelForSequenceClassification.from_pretrained(model_path)
-            cls._model.eval()  # Set model to evaluation mode
+            cls._model.eval()
 
             cls._tokenizer = AutoTokenizer.from_pretrained(model_path)
 

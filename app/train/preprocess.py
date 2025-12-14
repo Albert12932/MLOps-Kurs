@@ -39,33 +39,25 @@ def preprocess_and_save(
     raw_csv_path: str,
     output_dir: str = "data/preprocessed",
 ) -> None:
-    """
-    Загружает сырой датасет, чистит его и сохраняет результат на диск.
-    """
     df = pd.read_csv(raw_csv_path)
     df = df.dropna(subset=["text"])
 
     if "example_very_unclear" in df.columns:
         df = df[df["example_very_unclear"] != 1]
 
-    # v1 — clean
     df_v1 = df.copy()
     df_v1["text"] = df_v1["text"].apply(clean_text)
     df_v1 = df_v1[["text"] + EMOTION_COLUMNS]
 
-    # v2 — lemma + stopwords
     df_v2 = df.copy()
     df_v2["text"] = df_v2["text"].apply(clean_text_v2)
     df_v2 = df_v2[["text"] + EMOTION_COLUMNS]
 
-    # директория
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    # сохраняем полный v1 (если нужен)
     df_v1.to_csv(output_path / "dataset.csv", index=False)
 
-    # одинаковый сэмпл для честного сравнения
     df_v1_30k = df_v1.sample(n=30000, random_state=42)
     df_v2_30k = df_v2.loc[df_v1_30k.index]
 

@@ -43,14 +43,14 @@ def predict(input_data: TextInput, top_k: int = 3, threshold: float = 0.2):
     emotions_with_probs = []
     for idx, label in enumerate(label_names):
         prob = probs[idx].item()
-        emotions_with_probs.append(EmotionScore(emotion=label, probability=prob))
-    filtered = [e for e in emotions_with_probs if e.probability > threshold]
-    filtered.sort(key=lambda x: x.probability, reverse=True)
+        emotions_with_probs.append(EmotionScore(label=label, score=prob))
+    filtered = [e for e in emotions_with_probs if e.score > threshold]
+    filtered.sort(key=lambda x: x.score, reverse=True)
     filtered = filtered[:top_k]
     if not filtered:
-        max_emotion = max(emotions_with_probs, key=lambda x: x.probability)
+        max_emotion = max(emotions_with_probs, key=lambda x: x.score)
         filtered = [max_emotion]
-    predicted_emotions = [e.emotion for e in filtered]
+    predicted_emotions = filtered
     return PredictionResponse(
         text=text,
         emotions=emotions_with_probs,
