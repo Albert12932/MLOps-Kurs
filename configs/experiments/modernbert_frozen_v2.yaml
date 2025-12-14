@@ -1,0 +1,52 @@
+experiment_name: "emotion_detection"
+run_name: "modernbert_frozen_v2"
+
+model:
+  type: "transformer"
+  name: "cirimus/modernbert-base-go-emotions"
+  freeze_encoder: true
+  problem_type: "multi_label_classification"
+
+tokenizer:
+  max_length: 128
+
+training:
+  num_train_epochs: 2
+  batch_size: 32
+  learning_rate: 0.001
+
+data:
+  train_path: "data/preprocessed/30k_dataset_v2_lemma.csv"
+  text_column: "text"
+  label_columns:
+    - admiration
+    - amusement
+    - anger
+    - annoyance
+    - approval
+    - caring
+    - confusion
+    - curiosity
+    - desire
+    - disappointment
+    - disapproval
+    - disgust
+    - embarrassment
+    - excitement
+    - fear
+    - gratitude
+    - grief
+    - joy
+    - love
+    - nervousness
+    - optimism
+    - pride
+    - realization
+    - relief
+    - remorse
+    - sadness
+    - surprise
+    - neutral
+
+output:
+  model_dir: "models/modernbert_frozen"

@@ -1,0 +1,50 @@
+experiment_name: "emotion_detection"
+run_name: "baseline_logreg_v1"
+
+model:
+  type: "logistic_regression"
+
+vectorizer:
+  type: "tfidf"
+  max_features: 20000
+  ngram_range: [1, 2]
+  lowercase: true
+
+training:
+  max_iter: 300
+
+data:
+  train_path: "data/preprocessed/30k_dataset.csv"
+  text_column: "text"
+  label_columns:
+    - admiration
+    - amusement
+    - anger
+    - annoyance
+    - approval
+    - caring
+    - confusion
+    - curiosity
+    - desire
+    - disappointment
+    - disapproval
+    - disgust
+    - embarrassment
+    - excitement
+    - fear
+    - gratitude
+    - grief
+    - joy
+    - love
+    - nervousness
+    - optimism
+    - pride
+    - realization
+    - relief
+    - remorse
+    - sadness
+    - surprise
+    - neutral
+
+output:
+  model_path: "models/baseline_logreg"

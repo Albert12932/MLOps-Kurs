@@ -1,9 +1,37 @@
 model:
-  path: "models/fourth_test_model.pkl"
+  path: "models/modernbert_tuned"
 
-vectorizer:
-  path: "models/vectorizer.pkl"
+label_names:
+  - admiration
+  - amusement
+  - anger
+  - annoyance
+  - approval
+  - caring
+  - confusion
+  - curiosity
+  - desire
+  - disappointment
+  - disapproval
+  - disgust
+  - embarrassment
+  - excitement
+  - fear
+  - gratitude
+  - grief
+  - joy
+  - love
+  - nervousness
+  - optimism
+  - pride
+  - realization
+  - relief
+  - remorse
+  - sadness
+  - surprise
+  - neutral
 
+thresholds: 0.2
 
 mlflow:
   tracking_uri: "file:./mlruns"
